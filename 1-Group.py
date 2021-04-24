@@ -38,17 +38,15 @@ class Student:
     def number_of_bad_grades(self):
         k = 0
         for i in self.grades.values():
-            if i < 4:
+            if i < 3:
                 k += 1
         return (k)
 
     @property
     def is_on_grant(self):
         for i in self.grades.values():
-            if i < 3:
+            if i < 3 or sum(self.grades.values()) / len(self.grades) < 4:
                 return False
-        if float(sum(self.grades.values())) / len(self.grades) < 4.0:
-            return False
         return True
 
     @property
